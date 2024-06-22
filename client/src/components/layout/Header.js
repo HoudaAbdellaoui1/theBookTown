@@ -147,7 +147,7 @@ function Header(props) {
                 >
                   <Typography textAlign="center">Profile</Typography>
                 </MenuItem>
-                <MenuItem onClick={handleCloseUserMenu}>
+                <MenuItem component={Link} to={"/books/add"}>
                   <Typography textAlign="center">Add book</Typography>
                 </MenuItem>
                 <MenuItem onClick={props.logoutUser}>
