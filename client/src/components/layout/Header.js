@@ -15,6 +15,8 @@ import { Stack } from "@mui/material";
 import { logoutUser } from "../../actions/authActions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { renderImage, userImagePlaceholder } from "../../helper/image.js";
+
 const pages = ["Books", "Authors", "Categories"];
 
 function Header(props) {
@@ -119,14 +121,21 @@ function Header(props) {
                   size="large"
                 >
                   <Avatar
-                    alt="Remy Sharp"
-                    src="/static/images/avatar/2.jpg"
+                    src={
+                      props.auth.user.imageType
+                        ? renderImage(
+                            props.auth.user.imageBuffer.data,
+                            props.auth.user.imageType,
+                          )
+                        : userImagePlaceholder
+                    }
                     sx={{ width: 60, height: 60, bgcolor: "#6D799E" }}
                   />
                 </IconButton>
               </Tooltip>
               <Menu
                 sx={{ mt: "45px" }}
+                x
                 id="menu-appbar"
                 anchorEl={anchorElUser}
                 anchorOrigin={{

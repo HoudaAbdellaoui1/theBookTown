@@ -6,7 +6,7 @@ import Search from "../layout/Search";
 import { connect } from "react-redux";
 import axios from "axios";
 import { v1 as uuidv1 } from "uuid"; // Timestamp unique id
-
+import Col from "react-bootstrap/esm/Col";
 function UserProfile(props) {
   const [userInfo, setUserInfo] = useState({});
   const [userBooks, setUserBooks] = useState([]);
@@ -62,15 +62,17 @@ function UserProfile(props) {
           <h1 className="no-results">No books found</h1>
         ) : null}
         {filteredBooks.map((book) => (
-          <BookCard
-            key={uuidv1()}
-            id={book._id}
-            name={book.name}
-            author={book.author}
-            description={book.description}
-            genre={book.genre}
-            image={book.image}
-          />
+          <Col>
+            <BookCard
+              key={uuidv1()}
+              id={book._id}
+              name={book.name}
+              author={book.author}
+              description={book.description}
+              genre={book.genre}
+              image={book.image}
+            />
+          </Col>
         ))}
       </Row>
     </div>

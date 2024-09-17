@@ -31,7 +31,7 @@ code {
   position: relative;
 }
 
-/* .nav-link {
+.nav-link {
   color: #000000;
 } */
 /* 
@@ -40,7 +40,7 @@ code {
   display: inline-block;
   color: #808080;
   margin-left: 0.5rem;
-} */
+}
 
 .nav-item {
   float: right;

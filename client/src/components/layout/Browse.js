@@ -4,6 +4,7 @@ import BookCard from "./BookCard";
 import Search from "./Search";
 import axios from "axios";
 import { v1 as uuidv1 } from "uuid"; // Timestamp unique id
+import Col from "react-bootstrap/esm/Col";
 
 function Browse() {
   const [books, setBooks] = useState([]);
@@ -52,20 +53,22 @@ function Browse() {
         search={search}
         setSearch={setSearch}
       />
-      <Row className="card-deck">
+      <Row>
         {filteredBooks.length === 0 ? (
           <h1 className="no-results">No books found</h1>
         ) : null}
         {filteredBooks.map((book) => (
-          <BookCard
-            key={uuidv1()}
-            id={book._id}
-            name={book.name}
-            author={book.author}
-            description={book.description}
-            genre={book.genre}
-            image={book.image}
-          />
+          <Col>
+            <BookCard
+              key={uuidv1()}
+              id={book._id}
+              name={book.name}
+              author={book.author}
+              description={book.description}
+              genre={book.genre}
+              image={book.image}
+            />
+          </Col>
         ))}
       </Row>
     </div>
